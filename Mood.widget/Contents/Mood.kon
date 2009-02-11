@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget version="0.1" minimumVersion="2.0">
+   <debug>off</debug>
+
+   <about-box>
+      <image>Images/about.png</image>
+   </about-box>
+
+   <preference name="imageSize">
+      <defaultValue>60</defaultValue>
+      <description>Choose how large you want your mood to be displayed.</description>
+      <title>Face size:</title>
+      <minLength>20</minLength>
+      <maxLength>100</maxLength>
+      <ticks>9</ticks>
+      <type>slider</type>
+   </preference>
+
+   <preference name="face">
+      <defaultValue>smile</defaultValue>
+      <hidden>true</hidden>
+      <type>text</type>
+   </preference>
+
+   <window title="Mood">
+      <name>mainWindow</name>
+      <width>0</width>
+      <height>0</height>
+      <visible>true</visible>
+
+      <image src="Images/face-smile.png">
+         <name>background</name>
+         <hOffset>0</hOffset>
+         <vOffset>0</vOffset>
+         <width>128</width>
+         <height>128</height>
+         <zOrder>0</zOrder>
+      </image>
+
+      <contextMenuItems>
+         <menuItem title="Angelic" onSelect="changeMood('angel');" />
+         <menuItem title="Big Grin" onSelect="changeMood('grin');" />
+         <menuItem title="Crying" onSelect="changeMood('crying');" />
+         <menuItem title="Devilish" onSelect="changeMood('devil-grin');" />
+         <menuItem title="Happy" onSelect="changeMood('smile');" />
+         <menuItem title="Kissy" onSelect="changeMood('kiss');" />
+         <menuItem title="Ordinary" onSelect="changeMood('plain');" />
+         <menuItem title="Really Happy" onSelect="changeMood('smile-big');" />
+         <menuItem title="Sad" onSelect="changeMood('sad');" />
+         <menuItem title="Smart" onSelect="changeMood('glasses');" />
+         <menuItem title="Suprised" onSelect="changeMood('surprise');" />
+         <menuItem title="Wink Wink" onSelect="changeMood('wink');" />
+      </contextMenuItems>
+   </window>
+   
+
+   <action trigger="onPreferencesChanged">
+   <!--
+   changeSize(preferences.imageSize.value);
+   //-->
+   </action>
+
+   <action trigger="onLoad">
+   <!--
+   function changeMood(mood)
+   {
+      background.src = "Images/face-" + mood + ".png";
+      preferences.face.value = mood;
+      savePreferences();
+   }
+
+   function changeSize(size)
+   {
+      size = parseFloat(size) / 100;
+      mainWindow.width = size * 128;
+      mainWindow.height = size * 128;
+      background.width = size * 128;
+      background.height = size * 128;
+   }
+
+   changeMood(preferences.face.value);
+   changeSize(preferences.imageSize.value);
+   //-->
+   </action>
+</widget>
